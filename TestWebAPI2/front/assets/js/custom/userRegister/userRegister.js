@@ -1,6 +1,6 @@
 function userRegister()
 {
-    $("#plzw8").html("請稍候...");
+    
 
     var $email = $('#formUserRegister input[name=email]').val();
     var $password = $('#formUserRegister input[name=password]').val();
@@ -17,7 +17,11 @@ function userRegister()
             {
                 return;
             }
-            window.location="showMsg.html";
+            else
+            {
+                $("#plzw8").html("請稍候...");
+                window.location="showMsg.html";
+            }
         }
     });//end ajax
 

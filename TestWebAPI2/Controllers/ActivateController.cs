@@ -18,35 +18,30 @@ namespace TestWebAPI2.Controllers
         [Route("user/{hashed}/{userID}")]
         public string Get(string userID, string hashed)
         {
-            if (!HashHelper.verify(userID,hashed))
+            if (!HashHelper.VerifyMd5Hash(userID,hashed))
             {
-                return "not ok";
+                return "{\"err\":\"verify url format invalid\"}";
             }
 
-            //DataTable dt = UsersCmd.selectOne<String>("userID", userID);
+            DataTable dt = UsersCmd.selectOne<String>("userID", userID);
 
-            //int status = (int)dt.Rows[0]["status"];
+            int status = (int)dt.Rows[0]["status"];
 
-            //if (status.Equals(-1))
-            //{
-            //    return "err:account banned";
-            //}
-            //if (status.Equals(0))
-            //{
-            //    UsersCmd.activate(userID);
-            //}
-            //if (status.Equals(1))
-            //{
-            //    return "err:account already activated";
-            //}
+            if (status.Equals(-1))
+            {
+                return "{\"err\":\"account banned\"}";
+            }
+            if (status.Equals(0))
+            {
+                UsersCmd.activate(userID);
+            }
+            if (status.Equals(1))
+            {
+                return "{\"err\":\"account already activated\"}";
+            }
 
-            return "ok";
+            return "{\"result\":\"ok\"}";
 
-
-            //return
-            //    String.Format("userID:{0},encrypted userID:{1},decrypted userID:{2}",
-            //    userID, encrypted, HashHelper.Decrypt(encrypted, passwd)
-            //    );
         }
 
     }

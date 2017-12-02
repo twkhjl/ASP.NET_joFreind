@@ -11,14 +11,6 @@ namespace TestWebAPI2.Controllers
     [RoutePrefix("test")]
     public class TestController : ApiController
     {
-        // GET: api/Test
-        //public IEnumerable<string> Get()
-        //{
-        //    //MailHelper.sendEmail();
-        //    //MailHelper.sendEmail("twkhjl@gmail.com","this is title","this is content");
-
-        //    return new string[] { "value1", "value2" };
-        //}
 
         [Route("")]
         public string Get()
@@ -26,33 +18,35 @@ namespace TestWebAPI2.Controllers
             var baseUrl = Request.RequestUri.GetLeftPart(UriPartial.Authority);
             return baseUrl;
         }
-        // GET: api/Test/5
-        [Route("test1/{userID}")]
-        public string Get(string userID)
+        // GET: test/test1/aaa
+        [Route("test1/{str}")]
+        public string Get(string str)
         {
-            string encrypted = HashHelper.Encrypt(userID, "123");
-            string decrypted= HashHelper.Decrypt(encrypted, "123");
+            string hash = HashHelper.GetMd5Hash(str);
 
-            return String .Format(@"
-encrypted text:{0},
-decrypted  text:{1}",
-encrypted,decrypted);
+            Console.WriteLine("The MD5 hash of " + str + " is: " + hash + ".");
+
+            bool isMatch = HashHelper.VerifyMd5Hash(str, hash);
+            
+
+            return String .Format("hash:{0},original text:{1},is match:{2}",
+hash,str, isMatch);
         }
 
-        // POST: api/Test
-        public String Post([FromBody]string value)
-        {
-            return value;
-        }
+        //// POST: api/Test
+        //public String Post([FromBody]string value)
+        //{
+        //    return value;
+        //}
 
-        // PUT: api/Test/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //// PUT: api/Test/5
+        //public void Put(int id, [FromBody]string value)
+        //{
+        //}
 
-        // DELETE: api/Test/5
-        public void Delete(int id)
-        {
-        }
+        //// DELETE: api/Test/5
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

@@ -26,7 +26,7 @@ namespace Models.email
         {
             String url = "";
 
-            url = String.Format("{0}/activate/user/{1}/{2}",baseUrl, HashHelper.getHash(user.userID.ToString()), user.userID);
+            url = String.Format("{0}/activate/user/{1}/{2}",baseUrl, HashHelper.GetMd5Hash(user.userID.ToString()), user.userID);
 
             DataTable dt = UsersCmd.selectOne<String>("email", user.email);
 
