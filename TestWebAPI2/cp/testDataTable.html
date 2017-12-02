@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--custom css  -->
+    <link rel="stylesheet" href="assets/plugins/datatables-1.10.7/css/dataTables.bootstrap.css">
+    
+    
+    <title>test dataTable</title>
+</head>
+<body>
+   
+
+    <div class="container" id="main">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h3>test datatable</h3>
+
+                <div id="divTable"></div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- datatable -->
+<script src="assets/plugins/datatables-1.10.7/js/jquery.dataTables.min.js"></script>
+<script src="assets/plugins/datatables-1.10.7/js/dataTables.bootstrap.js"></script>
+
+<script>
+    
+$.ajax({
+    type: 'GET',
+    url: 'https://api.myjson.com/bins/138l2b',
+    dataType: 'json',
+    success: function (data) {
+        
+        tableStr = "<table id='example' class='table table-striped'>";
+            tableStr += "<thead><tr>";
+                tableStr += "<td>#</td>";
+                tableStr += "<td>姓名</td>";
+                tableStr += "<td>email</td>";
+                tableStr += "</tr></thead>";
+                tableStr += "<tbody>";
+                
+                    cnt=1;
+                $.each(data,function(index,value){
+                    tableStr += "<tr>";
+                        tableStr += "<td>"+cnt+"</td>";
+                        cnt++;
+                        tableStr += "<td>"+data[index].name+"</td>";
+                        tableStr += "<td>"+data[index].email+"</td>";
+                        tableStr += "</tr>";
+                    });//end each
+
+                    tableStr += "</tbody></table>";
+                    $("#divTable").html(tableStr);
+
+                    $('#example').DataTable({
+                        "language" : { 
+                            "paginate" : {"previous": "前頁", "next":"次頁"},
+                            "search" : "搜尋",
+                            "searchPlaceholder" : "請輸入搜尋關鍵字",
+                            "lengthMenu" : "每頁 _MENU_ 筆",                    
+                            "infoFiltered" : " ( 篩選前資料總筆數: _MAX_ 筆 )",
+                            "info" : "顯示 _START_ 至 _END_ 筆 / 總筆數: _TOTAL_ 筆 "            
+                        }		
+                    });//end dataTable
+                }//end success
+            });//end ajax
+
+</script>
+
+
+
+</body>
+</html>

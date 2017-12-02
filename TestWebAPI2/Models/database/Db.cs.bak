@@ -1,0 +1,48 @@
+﻿//change the extension to .cs and configure the datasource at line 18
+//and acoount and password at line 41,42
+
+
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+
+namespace Models.database
+{
+    public class Db
+    {
+
+        SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
+        //String dataSource = @".\SQLEXPRESS";
+        //string dataSource = @".";
+        string dataSource = @"ur datasource";
+
+        String dbName = "dbName";
+
+        private static SqlConnection sqlCon { get; set; }
+
+        private static Db instance;
+
+        public static SqlConnection conn()
+        {
+            if (instance == null)
+            {
+                instance = new Db();
+            }
+            return sqlCon;
+        }
+
+        private Db()
+        {
+            scsb.DataSource = dataSource;
+            scsb.InitialCatalog = dbName;
+            //scsb.IntegratedSecurity = true;
+            scsb.UserID = "uraccount";
+            scsb.Password = "urpassword";
+            sqlCon = new SqlConnection(scsb.ToString());
+
+        }
+
+    }
+}

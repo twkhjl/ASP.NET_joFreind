@@ -1,0 +1,44 @@
+function showAdminTable()
+{
+    $.ajax({
+        type: 'GET',
+        url: '../api/admins',
+        dataType: 'json',
+        success: function (data) {
+            $("#adminTable").empty();
+            sn=1;
+            var thead=$("<thead></thead>");
+            var title=$("<tr></tr>");
+            title.append($("<td>#</td>"));
+            title.append($("<td>帳號名稱</td>"));
+            title.append($("<td>狀態</td>"));
+            title.append($("<td>權限</td>"));
+            title.append($("<td>建立日期</td>"));
+            title.append($("<td>修改日期</td>"));
+            thead.append(title);
+    
+            var tbody=$("<tbody></tbody>");
+            $.each(data,function(index,value){
+                var tr = $("<tr></tr>");
+                var btnEditProfile = "<button type='button' onclick='editRecord(this)' class='btn btn-primary btn-flat' data-toggle='modal' data-target='#modal-edit' data-rowNum='"+data[index].adminID+"'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></button>";
+                var btnEditPwd = "<button type='button' onclick='editRecord(this)' class='btn btn-primary btn-flat' data-toggle='modal' data-target='#modal-editPwd' data-rowNum='"+data[index].adminID+"'><i class='fa fa-key' aria-hidden='true'></i></button>";
+                var btnDel = "<button type='button' onclick='delRecord(this)' class='btn btn-info btn-flat' data-rowNum='"+data[index].adminID+"'><i class='fa fa-times' aria-hidden='true'></i></button>";
+                tr.append($("<td>"+sn+"</td>"));
+                tr.append($("<td>"+data[index].account+"</td>"));
+                tr.append($("<td>"+((data[index].status==0)?"未開通":"已開通")+"</td>"));
+    
+                tr.append($("<td>"+((data[index].authority==0)?"最高管理員":"一般管理員")+"</td>"));
+                tr.append($("<td>"+data[index].createAt+"</td>"));
+                tr.append($("<td>"+data[index].updateAt+"</td>"));
+                tr.append($("<td>"+btnEditProfile+" "+btnEditPwd+" "+btnDel+"</td>"));
+                tbody.append(tr);
+                sn++;
+            });
+    
+            $("#adminTable").append(thead);
+            $("#adminTable").append(tbody);
+           
+        }
+    });
+}
+
