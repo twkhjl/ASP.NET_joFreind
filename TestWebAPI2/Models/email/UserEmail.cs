@@ -17,58 +17,25 @@ namespace Models.email
         };
 
 
-        public static void sendValidateEmail(string mailTo)
+        public static void sendValidateEmail(Users user,string baseUrl)
         {
-            MailHelper.sendEmail(mailTo, mailTitle["validateTitle"], validateContent(mailTo));
+            MailHelper.sendEmail(user.email, mailTitle["validateTitle"], validateContent(user, baseUrl));
         }
 
-        private static String validateContent(string mailTo)
+        private static String validateContent(Users user, string baseUrl)
         {
             String url = "";
 
-            DataTable dt = UsersCmd.selectOne<String>("email",mailTo);
+            url = String.Format("{0}/activate/user/{1}/{2}",baseUrl, HashHelper.getHash(user.userID.ToString()), user.userID);
 
-            Users user = new Users();
-            user.userID = (int)dt.Rows[0]["userID"];
-            user.email = dt.Rows[0]["email"].ToString();
-            user.status = 
-                Convert.IsDBNull(dt.Rows[0]["status"])?0:(int)dt.Rows[0]["status"];
-
-
-
+            DataTable dt = UsersCmd.selectOne<String>("email", user.email);
 
 
             String content =String.Format(
 @"
-<!DOCTYPE html>
-< head >
-< meta charset = 'UTF-8' >
-< meta name = 'viewport' content = 'width=device-width, initial-scale=1.0' >
-< meta http - equiv = 'X-UA-Compatible' content = 'ie=edge' >
-< link rel = 'stylesheet' href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' >
-< link href = '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel = 'stylesheet' >
 
-</ head >
-< body >
-< div class='container'>
-<div class='row'>
-<div class='col-sm-8 col-sm-offset-2'>
 點擊下方連結以驗證您的帳號:
-<a href='{0}'>驗證連結</a>
-</div>
-</div>
-</div>
-
-
-
-
-<!-- script CDN -->
-<script src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' ></ script >
-< script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-
-</ body >
-</ html >
-
+{0}
 
 ",url);
 

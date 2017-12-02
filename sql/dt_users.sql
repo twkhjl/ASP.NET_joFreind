@@ -6,7 +6,7 @@ mobile varchar(50) NULL,
 password varchar(200) NULL,
 registerMode int NULL default 0,
 status int NULL default 0,
-authority int NULL,
+authority int NULL default 0,
 rememberToken varchar(200) NULL,
 
 name varchar(50) NULL,

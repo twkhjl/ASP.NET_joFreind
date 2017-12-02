@@ -13,7 +13,8 @@ using Models.blueprint.formClass;
 using Models.blueprint.errClass;
 using Models.auth;
 using Models.blueprint.jsonClass;
-using TestWebAPI2.Models.helper;
+using Models.helper;
+using Models.email;
 
 namespace TestWebAPI2.Controllers
 {
@@ -61,13 +62,19 @@ namespace TestWebAPI2.Controllers
             Users obj = new Users();
             obj.email = data.email;
             obj.password = data.password;
+            
 
             factory.addOne(obj);
             factory.getAll();
             factory.moveToLast();
             var newOne = factory.getCurrent();
 
-            MailHelper.sendEmail(data.email, "請驗證您的帳號", "測試驗證信");
+            obj.userID = factory.getCurrent().userID;
+
+            //send verify email
+            string baseUrl = Request.RequestUri.GetLeftPart(UriPartial.Authority);
+            UserEmail.sendValidateEmail(obj, baseUrl);
+            
 
             return JsonHelper.toJson(newOne);
         }

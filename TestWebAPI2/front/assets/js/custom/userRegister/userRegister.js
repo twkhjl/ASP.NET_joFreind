@@ -1,6 +1,7 @@
 function userRegister()
 {
-    
+    $("#plzw8").html("請稍候...");
+
     var $email = $('#formUserRegister input[name=email]').val();
     var $password = $('#formUserRegister input[name=password]').val();
     var $confirmPwd = $('#formUserRegister input[name=confirmPwd]').val();
@@ -14,10 +15,9 @@ function userRegister()
         success: function (data) {
             if(!verifyUserRegister(data))
             {
-console.log(data);
                 return;
             }
-console.log(data);
+            window.location="showMsg.html";
         }
     });//end ajax
 

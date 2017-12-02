@@ -8,21 +8,35 @@ using Models.helper;
 
 namespace TestWebAPI2.Controllers
 {
+    [RoutePrefix("test")]
     public class TestController : ApiController
     {
         // GET: api/Test
-        public IEnumerable<string> Get()
-        {
-            //MailHelper.sendEmail();
-            //MailHelper.sendEmail("twkhjl@gmail.com","this is title","this is content");
+        //public IEnumerable<string> Get()
+        //{
+        //    //MailHelper.sendEmail();
+        //    //MailHelper.sendEmail("twkhjl@gmail.com","this is title","this is content");
 
-            return new string[] { "value1", "value2" };
+        //    return new string[] { "value1", "value2" };
+        //}
+
+        [Route("")]
+        public string Get()
+        {
+            var baseUrl = Request.RequestUri.GetLeftPart(UriPartial.Authority);
+            return baseUrl;
         }
-
         // GET: api/Test/5
-        public string Get(int id)
+        [Route("test1/{userID}")]
+        public string Get(string userID)
         {
-            return "value";
+            string encrypted = HashHelper.Encrypt(userID, "123");
+            string decrypted= HashHelper.Decrypt(encrypted, "123");
+
+            return String .Format(@"
+encrypted text:{0},
+decrypted  text:{1}",
+encrypted,decrypted);
         }
 
         // POST: api/Test

@@ -143,6 +143,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ActivateController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
@@ -161,12 +162,15 @@
     <None Include="Models\database\Db.cs.bak" />
     <Compile Include="Models\blueprint\tableClass\Users.cs" />
     <Compile Include="Models\database\Db.cs" />
+    <Compile Include="Models\email\UserEmail.cs" />
     <Compile Include="Models\factory\UsersFactory.cs" />
     <Compile Include="Models\helper\HashHelper.cs" />
     <Compile Include="Models\helper\JsonHelper.cs" />
+    <None Include="Models\helper\MailHelper.cs.bak" />
     <Compile Include="Models\helper\MailHelper.cs" />
     <Compile Include="Models\helper\StrHelper.cs" />
     <Compile Include="Models\helper\TimeHelper.cs" />
+    <Compile Include="Models\sqlCmd\SQL.cs" />
     <Compile Include="Models\sqlCmd\UsersCmd.cs" />
     <Compile Include="Models\sqlCmd\AdminCmd.cs" />
     <Compile Include="Global.asax.cs">

@@ -92,9 +92,25 @@ namespace Models.sqlCmd
             SqlCommand cmd = new SqlCommand(strSQL, conn);
             cmd.Parameters.AddWithValue("@password", user.password);
             cmd.Parameters.AddWithValue("@updateAt", DateTime.Now);
-            cmd.Parameters.AddWithValue("@adminID", user.userID);
+            cmd.Parameters.AddWithValue("@userID", user.userID);
             int row = cmd.ExecuteNonQuery();
             
+            conn.Close();
+        }
+
+        public static void activate(string userID)
+        {
+            SqlConnection conn = Db.conn();
+            conn.Open();
+
+            string strSQL = "UPDATE " + tableName +
+                " set status= 1, updateAt = @updateAt WHERE userID=@userID ";
+
+            SqlCommand cmd = new SqlCommand(strSQL, conn);
+            cmd.Parameters.AddWithValue("@updateAt", DateTime.Now);
+            cmd.Parameters.AddWithValue("@userID", userID);
+            int row = cmd.ExecuteNonQuery();
+
             conn.Close();
         }
 
