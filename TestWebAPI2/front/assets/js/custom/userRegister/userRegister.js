@@ -21,6 +21,7 @@ function userRegister(e)
             else
             {
                 sessionStorage.setItem("msgToken","userCreated");
+                sessionStorage.setItem("createdEmail",$email);
                 window.location="showMsg.html";
                 
             }

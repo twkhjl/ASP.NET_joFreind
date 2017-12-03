@@ -26,6 +26,15 @@
     <!-- Custom stylesheet - for your changes -->
     <link href="css/custom.css" rel="stylesheet">
 
+
+
+
+    
+
+
+
+
+
     <!-- Responsivity for older IE -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -79,6 +88,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="dropdown active">
                                     <a href="index.html">首頁 </a>
+                                    <div id="ttt"></div>
                                 </li>
                                 <li class="dropdown">
                                     <a href="about.html">關於 </a>
@@ -110,15 +120,15 @@
                                     <a href="contact.html">聯絡我們</a>
                                 </li>
 
-                                <li class="dropdown">
+                                <li class="dropdown" id="navUserLoginSection">
                                     <a href="user-login.html"><i class="fa fa-sign-in"></i> <span>登入</span></a>
                                 </li>
 
-                                <li class="dropdown">
+                                <li class="dropdown"  id="navUserRegisterSection">
                                     <a href="user-register.html"><i class="fa fa-user"></i> <span>註冊</span></a>
                                 </li>
 
-                                <li class="dropdown" type="hidden">
+                                <li class="dropdown" id="navLoginedUserSecton">
                                     <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">會員專區 <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="#">參加活動</a></li>
@@ -126,14 +136,14 @@
                                         <li><a href="#">歷史紀錄</a></li>
                                         <li><a href="#">好友列表</a></li>
                                         <li><a href="#">個人設定</a></li>
-                                        <li><a href="#">登出</a></li>
+                                        <li id="liUserLogOut"><a href="#">登出</a></li>
                                     </ul>
                                 </li>
                             </ul>
 
                         </div>
                         <!--/.nav-collapse -->
-                        <div class="collapse clearfix" id="search">
+                        <!-- <div class="collapse clearfix" id="search">
 
                             <form class="navbar-form" role="search">
                                 <div class="input-group">
@@ -144,7 +154,7 @@
                                 </div>
                             </form>
 
-                        </div>
+                        </div> -->
                         <!--/.nav-collapse -->
 
                     </div>
@@ -685,6 +695,12 @@ _________________________________________________________ -->
 
     <!-- owl carousel -->
     <script src="js/owl.carousel.min.js"></script>
+
+    <!-- custom js for auth -->
+    <script src="assets/js/custom/auth/userAuth.js"></script>
+    
+    
+    
 
 
 

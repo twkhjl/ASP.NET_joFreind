@@ -32,5 +32,23 @@ namespace TestWebAPI2.Controllers
 
             return JsonHelper.toJson(obj);
         }
+
+        [HttpPost]
+        [Route("api/userLogin")]
+        public HttpResponseMessage userLogin([FromBody]FormUserLogin data)
+        {
+            object obj = UserAuth.chkAccount(data);
+            return JsonHelper.toJson(obj);
+
+            //Users obj = UserAuth.chkAccount(data);
+
+            //if (obj == null)
+            //{
+            //    var err = new { loginErr = 1};
+            //    return JsonHelper.toJson(err);
+            //}
+
+            //return JsonHelper.toJson(obj);
+        }
     }
 }

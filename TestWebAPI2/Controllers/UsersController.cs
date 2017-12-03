@@ -79,6 +79,8 @@ namespace TestWebAPI2.Controllers
             return JsonHelper.toJson(newOne);
         }
 
+        
+
         //[HttpPost]
         //[Route("api/admins/del")]
         //public HttpResponseMessage DelOne([FromBody]Admin data)

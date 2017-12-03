@@ -182,10 +182,10 @@
 
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="box">
-                            <h2 class="text-uppercase">登入</h2>
+                            <h2 class="text-uppercase">登入<span id="plzw8"></span></h2>
 
 
-                            <form action="customer-orders.html" method="post">
+                            <form id="formUserLogin">
                                 <div class="form-group">
                                     <label for="email">請輸入Email:</label>
                                     <input type="text" class="form-control" name="email">
@@ -197,7 +197,7 @@
                                     <span></span>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-template-main"><i class="fa fa-sign-in"></i> 登入</button>
+                                    <button type="submit" id="btnLogin" class="btn btn-template-main"><i class="fa fa-sign-in"></i> 登入</button>
                                 </div>
                             </form>
                         </div>
@@ -255,6 +255,11 @@ _________________________________________________________ -->
     <script src="js/jquery.parallax-1.1.3.js"></script>
     <script src="js/front.js"></script>
 
+
+    <!--custom script -->
+<script src="assets/js/custom/userLogin/init.js"></script>
+<script src="assets/js/custom/userLogin/verifyUserLogin.js"></script>
+<script src="assets/js/custom/userLogin/userLogin.js"></script>
     
 
 

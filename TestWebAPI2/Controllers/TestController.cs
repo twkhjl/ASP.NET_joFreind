@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Models.helper;
+using System.IO;
+using System.Net.Http.Headers;
 
 namespace TestWebAPI2.Controllers
 {
@@ -12,41 +14,31 @@ namespace TestWebAPI2.Controllers
     public class TestController : ApiController
     {
 
-        [Route("")]
-        public string Get()
+        // GET: test/test1/
+
+        [Route("test1")]
+        public IHttpActionResult Get()
         {
-            var baseUrl = Request.RequestUri.GetLeftPart(UriPartial.Authority);
-            return baseUrl;
-        }
-        // GET: test/test1/aaa
-        [Route("test1/{str}")]
-        public string Get(string str)
-        {
-            string hash = HashHelper.GetMd5Hash(str);
+            String baseURL = Request.RequestUri.GetLeftPart(UriPartial.Authority);
+            return Redirect(baseURL+"/front/index.html");
 
-            Console.WriteLine("The MD5 hash of " + str + " is: " + hash + ".");
-
-            bool isMatch = HashHelper.VerifyMd5Hash(str, hash);
-            
-
-            return String .Format("hash:{0},original text:{1},is match:{2}",
-hash,str, isMatch);
         }
 
-        //// POST: api/Test
-        //public String Post([FromBody]string value)
-        //{
-        //    return value;
-        //}
+        [Route("test2")]
+        [HttpGet]
+        public HttpResponseMessage testHtmlStr()
+        {
+            String baseURL = Request.RequestUri.GetLeftPart(UriPartial.Authority);
+            String url = baseURL + "/front/index.html";
+            String htmlStr =
+                String.Format(
+            @"<script>window.location='{0}';</script>", url);
 
-        //// PUT: api/Test/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+            var response = new HttpResponseMessage();
+            response.Content = new StringContent(htmlStr);
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+            return response;
+        }
 
-        //// DELETE: api/Test/5
-        //public void Delete(int id)
-        //{
-        //}
     }
 }
