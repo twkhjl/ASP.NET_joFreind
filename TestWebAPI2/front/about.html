@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JoFriend-作伙來揪團</title>
+
+    <meta name="keywords" content="">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap and Font Awesome css -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Css animations  -->
+    <link href="css/animate.css" rel="stylesheet">
+
+    <!-- Theme stylesheet, if possible do not edit this stylesheet -->
+    <link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- Custom stylesheet - for your changes -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Responsivity for older IE -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+    <!-- Favicon and apple touch icons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png" />
+</head>
+
+<body>
+
+    <div id="all">
+                
+    <header>
+
+        <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+            <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+                <div class="container">
+                    <div class="navbar-header">
+
+                        <a class="navbar-brand home" href="index.html">
+                            <img src="img/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
+                            <img src="img/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
+                        </a>
+                        <div class="navbar-buttons">
+                            <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                                <span class="sr-only">Toggle navigation</span>
+                                <i class="fa fa-align-justify"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!--/.navbar-header -->
+
+                    <div class="navbar-collapse collapse" id="navigation">
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="index.html">首頁 </a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="about.html">關於 </a>
+                            </li>
+
+                            <li class="dropdown">
+                                    <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">活動分類 <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="activity-list.html">分類一</a>
+                                        </li>
+                                        <li><a href="activity-list.html">分類二</a>
+                                        </li>
+                                        <li><a href="activity-list.html">分類三</a>
+                                        </li>
+                                        <li><a href="activity-list.html">分類四</a>
+                                        </li>
+                                        <li><a href="activity-list.html">分類五</a>
+                                        </li>
+                                        <li><a href="activity-list.html">分類六</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            <li class="dropdown">
+                                    <a href="news.html">最新消息</a>
+                                </li>
+
+                            <li class="dropdown">
+                                <a href="contact.html">聯絡我們</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="user-login.html"><i class="fa fa-sign-in"></i> <span>登入</span></a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="user-register.html"><i class="fa fa-user"></i> <span>註冊</span></a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!--/.nav-collapse -->
+                    <div class="collapse clearfix" id="search">
+
+                        <form class="navbar-form" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <span class="input-group-btn">
+                <button type="submit" class="btn btn-template-main">
+                    <i class="fa fa-search"></i></button></span>
+                            </div>
+                        </form>
+
+                    </div>
+                    <!--/.nav-collapse -->
+
+                </div>
+
+
+            </div>
+            <!-- /#navbar -->
+
+        </div>
+
+        <!-- *** NAVBAR END *** -->
+
+    </header>
+                
+                        <!-- *** LOGIN MODAL ***
+                _________________________________________________________ -->
+                
+                        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="Login">會員登入</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="customer-orders.html" method="post">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="email" placeholder="請輸入email">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" name="password" placeholder="請輸入密碼">
+                                            </div>
+                
+                                            <p class="text-center">
+                                                <button class="btn btn-template-main"><i class="fa fa-sign-in"></i> 登入</button>
+                                            </p>
+                
+                                        </form>
+                
+                                        <p class="text-center text-muted"><a href="customer-register.html">尚未註冊?</a></p>
+                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- *** LOGIN MODAL END *** -->
+
+                        <!-- page content -->
+
+        <div id="heading-breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1>關於我們</h1>
+                    </div>
+                    <div class="col-md-5">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">首頁</a>
+                            </li>
+                            <li>關於我們</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- _________page content_______________________________________ -->
+        <div id="content">
+            <div class="container">
+                <div class="row">
+                    <!-- *** COLUMN ***
+			 _________________________________________________________ -->
+
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <section>
+
+                            <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+                                ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+                            <div class="panel-group" id="accordion">
+
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+
+						<a data-toggle="collapse" data-parent="#accordion" href="#faq1">
+
+						    1. What to do if I have still not received the order?
+
+						</a>
+
+					    </h4>
+                                    </div>
+                                    <div id="faq1" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+                                                semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                            <ul>
+                                                <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                                <li>Aliquam tincidunt mauris eu risus.</li>
+                                                <li>Vestibulum auctor dapibus neque.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.panel -->
+
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+
+						    2. What are the postal rates?
+
+						</a>
+
+					    </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                                            on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                                            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.panel -->
+
+
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+
+						    3. Do you send overseas?
+
+						</a>
+
+					    </h4>
+                                    </div>
+                                    <div id="collapseThree" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                                            on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                                            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.panel -->
+
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+
+						<a data-toggle="collapse" data-parent="#accordion" href="#faq4">
+
+						    4. Why are you more expensive than others?
+
+						</a>
+
+					    </h4>
+                                    </div>
+                                    <div id="faq4" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+                                                semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                            <ul>
+                                                <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                                <li>Aliquam tincidunt mauris eu risus.</li>
+                                                <li>Vestibulum auctor dapibus neque.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.panel -->
+
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+
+						<a data-toggle="collapse" data-parent="#accordion" href="#faq5">
+
+						    5. Another important question
+
+						</a>
+
+					    </h4>
+                                    </div>
+                                    <div id="faq5" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+                                                semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                            <ul>
+                                                <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                                <li>Aliquam tincidunt mauris eu risus.</li>
+                                                <li>Vestibulum auctor dapibus neque.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.panel -->
+
+                            </div>
+                            <!-- /.panel-group -->
+
+                            <p class="text-muted">In case you haven't found the answer for your question please feel free to <a href="contact.html">contact us</a>, our customer support will be happy to help you.</p>
+                        </section>
+
+                    </div>
+                    <!-- /.col-md-12 -->
+
+                    <!-- *** COLUMN END *** -->
+                
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#content -->
+
+
+<br><br><br><br><br>
+
+
+    
+
+        <!-- *** COPYRIGHT ***
+_________________________________________________________ -->
+
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-12">
+                    <p class="pull-left">&copy; 2015. Your company / name goes here</p>
+                    <p class="pull-right">Template by <a href="https://bootstrapious.com">Bootstrapious</a> & <a href="https://fity.cz">Fity.cz</a>
+                         <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <!-- /#copyright -->
+
+        <!-- *** COPYRIGHT END *** -->
+
+
+
+    </div>
+    <!-- /#all -->
+
+
+    <!-- #### JAVASCRIPT FILES ### -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
+    </script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/jquery.parallax-1.1.3.js"></script>
+    <script src="js/front.js"></script>
+
+    
+
+
+
+</body>
+
+</html>

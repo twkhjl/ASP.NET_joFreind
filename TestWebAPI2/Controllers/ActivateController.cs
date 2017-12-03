@@ -16,11 +16,12 @@ namespace TestWebAPI2.Controllers
 
         [HttpGet]
         [Route("user/{hashed}/{userID}")]
-        public string Get(string userID, string hashed)
+        public HttpResponseMessage Get(string userID, string hashed)
         {
             if (!HashHelper.VerifyMd5Hash(userID,hashed))
             {
-                return "{\"err\":\"verify url format invalid\"}";
+                var err = new { err = "verify url format invalid" };
+                return JsonHelper.toJson(err);
             }
 
             DataTable dt = UsersCmd.selectOne<String>("userID", userID);
@@ -29,7 +30,8 @@ namespace TestWebAPI2.Controllers
 
             if (status.Equals(-1))
             {
-                return "{\"err\":\"account banned\"}";
+                var err = new { err = "account banned" };
+                return JsonHelper.toJson(err);
             }
             if (status.Equals(0))
             {
@@ -37,10 +39,12 @@ namespace TestWebAPI2.Controllers
             }
             if (status.Equals(1))
             {
-                return "{\"err\":\"account already activated\"}";
+                var err = new { err = "account already activated" };
+                return JsonHelper.toJson(err);
             }
 
-            return "{\"result\":\"ok\"}";
+            var result = new { result = "ok" };
+            return JsonHelper.toJson(result);
 
         }
 
