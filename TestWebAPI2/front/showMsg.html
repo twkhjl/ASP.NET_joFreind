@@ -51,10 +51,10 @@
 <body>
 
     <div id="all">
-                
+
         <header>
 
-            <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+            <!-- <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200"> -->
 
                 <div class="navbar navbar-default yamm" role="navigation" id="navbar">
 
@@ -110,35 +110,34 @@
                                     <a href="contact.html">聯絡我們</a>
                                 </li>
 
-                                <li class="dropdown">
+                                <li class="dropdown" id="navUserLoginSection">
                                     <a href="user-login.html"><i class="fa fa-sign-in"></i> <span>登入</span></a>
                                 </li>
 
-                                <li class="dropdown">
+                                <li class="dropdown"  id="navUserRegisterSection">
                                     <a href="user-register.html"><i class="fa fa-user"></i> <span>註冊</span></a>
+                                </li>
+
+                                <li class="dropdown" id="navLoginedUserSecton">
+                                    <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">會員專區 <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">參加活動</a></li>
+                                        <li><a href="#">建立活動</a></li>
+                                        <li><a href="#">歷史紀錄</a></li>
+                                        <li><a href="#">好友列表</a></li>
+                                        <li><a href="#">個人設定</a></li>
+                                        <li id="liUserLogOut"><a href="#">登出</a></li>
+                                    </ul>
                                 </li>
                             </ul>
 
                         </div>
-                        <!--/.nav-collapse -->
-                        <div class="collapse clearfix" id="search">
 
-                            <form class="navbar-form" role="search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                    <span class="input-group-btn">
-                    <button type="submit" class="btn btn-template-main">
-                        <i class="fa fa-search"></i></button></span>
-                                </div>
-                            </form>
-
-                        </div>
-                        <!--/.nav-collapse -->
 
                     </div>
 
 
-                </div>
+                <!-- </div> -->
                 <!-- /#navbar -->
 
             </div>
@@ -146,13 +145,13 @@
             <!-- *** NAVBAR END *** -->
 
         </header>
-                
+
                         <!-- *** LOGIN MODAL ***
                 _________________________________________________________ -->
-                
+
                         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
                             <div class="modal-dialog modal-sm">
-                
+
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -166,20 +165,20 @@
                                             <div class="form-group">
                                                 <input type="password" class="form-control" name="password" placeholder="請輸入密碼">
                                             </div>
-                
+
                                             <p class="text-center">
                                                 <button class="btn btn-template-main"><i class="fa fa-sign-in"></i> 登入</button>
                                             </p>
-                
+
                                         </form>
-                
+
                                         <p class="text-center text-muted"><a href="customer-register.html">尚未註冊?</a></p>
-                
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                
+
                         <!-- *** LOGIN MODAL END *** -->
 
 <!--________________________PAGE CONTENT____________________________________________-->
@@ -235,10 +234,14 @@ _________________________________________________________ -->
     <script src="js/jquery.parallax-1.1.3.js"></script>
     <script src="js/front.js"></script>
 
-    
+
 
     <!-- owl carousel -->
     <script src="js/owl.carousel.min.js"></script>
+
+    <!-- custom global var -->
+    <script src="assets/js/custom/config.js"></script>
+
 
     <!-- custom js -->
     <script src="assets/js/custom/showMsg/init.js"></script>

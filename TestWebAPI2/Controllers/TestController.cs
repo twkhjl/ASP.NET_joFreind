@@ -10,7 +10,7 @@ using System.Net.Http.Headers;
 
 namespace TestWebAPI2.Controllers
 {
-    [RoutePrefix("test")]
+    [RoutePrefix("")]
     public class TestController : ApiController
     {
 
@@ -38,6 +38,13 @@ namespace TestWebAPI2.Controllers
             response.Content = new StringContent(htmlStr);
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
             return response;
+        }
+
+        [Route("front/about.html")]
+        [HttpGet]
+        public String testRoute()
+        {
+            return "test route";
         }
 
     }

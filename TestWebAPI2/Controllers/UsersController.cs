@@ -22,31 +22,33 @@ namespace TestWebAPI2.Controllers
     {
         UsersFactory factory = new UsersFactory();
 
-//------------------GET--------------
+        //------------------GET--------------
 
-        //[HttpGet]
-        //public HttpResponseMessage FindOne(int id)
-        //{
-        //    factory.moveTo(id);
-        //    var obj = factory.getCurrent();
+        [HttpGet]
+        [Route("api/users/{id}")]
+        public HttpResponseMessage FindOne(int id)
+        {
+            factory.moveTo(id);
+            var obj = factory.getCurrent();
 
-        //    if (obj == null)
-        //    {
-        //        var err = new { err = "recordNotFound" };
-        //        return JsonHelper.toJson(err);
-        //    }
-        //    return JsonHelper.toJson(obj);
-        //}
-        //[HttpGet]
-        //public HttpResponseMessage GetAll()
-        //{
-        //    var obj = factory.getAll();
-         
+            if (obj == null)
+            {
+                var err = new { err = "recordNotFound" };
+                return JsonHelper.toJson(err);
+            }
+            return JsonHelper.toJson(obj);
+        }
+        [HttpGet]
+        [Route("api/users")]
+        public HttpResponseMessage GetAll()
+        {
+            var obj = factory.getAll();
 
-        //    return JsonHelper.toJson(obj);
-        //}
 
- //-----------------POST------------------------ 
+            return JsonHelper.toJson(obj);
+        }
+
+        //-----------------POST------------------------ 
 
         [HttpPost]
         [Route("api/users/register")]

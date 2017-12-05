@@ -52,6 +52,8 @@ namespace Models.auth
             result.createAt = (DateTime)dt.Rows[0]["createAt"];
             result.updateAt = (DateTime)dt.Rows[0]["updateAt"];
 
+            
+
             return result;
 
 

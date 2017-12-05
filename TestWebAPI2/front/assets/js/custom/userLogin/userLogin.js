@@ -1,7 +1,7 @@
 function userLogin(e)
 {
-    
-    $("#plzw8").append("&nbsp;&nbsp;<img src='assets/imgs/gif/ajax-loader.gif' style='width:25px;'>");
+
+    $("#plzw8").append("&nbsp;&nbsp;<img src='../"+AJAX_LOADER_URL+"' style='width:25px;'>");
     var $email = $('#formUserLogin input[name=email]').val();
     var $password = $('#formUserLogin input[name=password]').val();
     $.ajax({
@@ -25,4 +25,3 @@ function userLogin(e)
     });//end ajax
 
 }
-
