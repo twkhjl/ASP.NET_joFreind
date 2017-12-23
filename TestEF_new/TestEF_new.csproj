@@ -1,0 +1,470 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FAFF977D-1E5F-4B5E-AB55-887491DD5E80}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestEF_new</RootNamespace>
+    <AssemblyName>TestEF_new</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="front\about.html" />
+    <Content Include="front\activity-add.html" />
+    <Content Include="front\activity-detail.html" />
+    <Content Include="front\activity-list.html" />
+    <Content Include="front\assets\ajax-loader\ajax-loader.gif" />
+    <Content Include="front\assets\css\custom\userLogin.css" />
+    <Content Include="front\assets\css\custom\userRegister.css" />
+    <Content Include="front\assets\imgs\gif\ajax-loader.gif" />
+    <Content Include="front\assets\js\custom\auth\userAuth.js" />
+    <Content Include="front\assets\js\custom\common\commonFunc.js" />
+    <Content Include="front\assets\js\custom\config.js" />
+    <Content Include="front\assets\js\custom\elements\activity-add.js" />
+    <Content Include="front\assets\js\custom\elements\activity-detail.js" />
+    <Content Include="front\assets\js\custom\elements\activity-list.js" />
+    <Content Include="front\assets\js\custom\elements\footer.js" />
+    <Content Include="front\assets\js\custom\elements\navbar.js" />
+    <Content Include="front\assets\js\custom\forgotPassword\forgotPassword_email.js" />
+    <Content Include="front\assets\js\custom\forgotPassword\resetPassword.js" />
+    <Content Include="front\assets\js\custom\index\initIndex.js" />
+    <Content Include="front\assets\js\custom\showMsg\initShowMsg.js" />
+    <Content Include="front\assets\js\custom\userRegister\initUserRegister.js" />
+    <Content Include="front\assets\js\custom\userRegister\userRegister.js" />
+    <Content Include="front\assets\js\custom\userRegister\verifyUserRegister.js" />
+    <Content Include="front\assets\plugins\datatables-1.10.7\css\dataTables.bootstrap.css" />
+    <Content Include="front\assets\plugins\datatables-1.10.7\images\favicon.ico" />
+    <Content Include="front\assets\plugins\datatables-1.10.7\images\sort_asc.png" />
+    <Content Include="front\assets\plugins\datatables-1.10.7\images\sort_asc_disabled.png" />
+    <Content Include="front\assets\plugins\datatables-1.10.7\images\sort_both.png" />
+    <Content Include="front\assets\plugins\datatables-1.10.7\images\sort_desc.png" />
+    <Content Include="front\assets\plugins\datatables-1.10.7\images\sort_desc_disabled.png" />
+    <Content Include="front\assets\plugins\datatables-1.10.7\js\dataTables.bootstrap.js" />
+    <Content Include="front\assets\plugins\datatables-1.10.7\js\jquery.dataTables.min.js" />
+    <Content Include="front\assets\plugins\jpages\css\animate.css" />
+    <Content Include="front\assets\plugins\jpages\css\github.css" />
+    <Content Include="front\assets\plugins\jpages\css\jPages.css" />
+    <Content Include="front\assets\plugins\jpages\css\style.css" />
+    <Content Include="front\assets\plugins\jpages\js\highlight.pack.js" />
+    <Content Include="front\assets\plugins\jpages\js\jPages.js" />
+    <Content Include="front\assets\plugins\jpages\js\jPages.min.js" />
+    <Content Include="front\assets\plugins\jpages\js\jquery-1.8.2.min.js" />
+    <Content Include="front\assets\plugins\jpages\js\jquery.lazyload.js" />
+    <Content Include="front\assets\plugins\jpages\js\js.js" />
+    <Content Include="front\assets\plugins\jpages\js\tabifier.js" />
+    <Content Include="front\assets\plugins\twbsPagination\jquery.twbsPagination.min.js" />
+    <Content Include="front\contact.html" />
+    <Content Include="front\css\animate.css" />
+    <Content Include="front\css\bootstrap.css" />
+    <Content Include="front\css\bootstrap.min.css" />
+    <Content Include="front\css\custom.css" />
+    <Content Include="front\css\font-awesome.css" />
+    <Content Include="front\css\fonts\fontawesome-webfont.svg" />
+    <Content Include="front\css\owl.carousel.css" />
+    <Content Include="front\css\owl.theme.css" />
+    <Content Include="front\css\style.blue.css" />
+    <Content Include="front\css\style.default.css" />
+    <Content Include="front\css\style.green.css" />
+    <Content Include="front\css\style.marsala.css" />
+    <Content Include="front\css\style.pink.css" />
+    <Content Include="front\css\style.red.css" />
+    <Content Include="front\css\style.turquoise.css" />
+    <Content Include="front\css\style.violet.css" />
+    <Content Include="front\forgotPassword_email.html" />
+    <Content Include="front\img\apple-touch-icon-114x114.png" />
+    <Content Include="front\img\apple-touch-icon-120x120.png" />
+    <Content Include="front\img\apple-touch-icon-144x144.png" />
+    <Content Include="front\img\apple-touch-icon-152x152.png" />
+    <Content Include="front\img\apple-touch-icon-57x57.png" />
+    <Content Include="front\img\apple-touch-icon-72x72.png" />
+    <Content Include="front\img\apple-touch-icon-76x76.png" />
+    <Content Include="front\img\apple-touch-icon.png" />
+    <Content Include="front\img\banner.jpg" />
+    <Content Include="front\img\banner2.jpg" />
+    <Content Include="front\img\basketsquare.jpg" />
+    <Content Include="front\img\blog-avatar.jpg" />
+    <Content Include="front\img\blog-avatar2.jpg" />
+    <Content Include="front\img\blog-medium.jpg" />
+    <Content Include="front\img\blog-recent-2.jpg" />
+    <Content Include="front\img\blog-recent-3.jpg" />
+    <Content Include="front\img\blog-recent.jpg" />
+    <Content Include="front\img\blog.jpg" />
+    <Content Include="front\img\blog2.jpg" />
+    <Content Include="front\img\customer-1.png" />
+    <Content Include="front\img\customer-2.png" />
+    <Content Include="front\img\customer-3.png" />
+    <Content Include="front\img\customer-4.png" />
+    <Content Include="front\img\customer-5.png" />
+    <Content Include="front\img\customer-6.png" />
+    <Content Include="front\img\detailbig1.jpg" />
+    <Content Include="front\img\detailbig2.jpg" />
+    <Content Include="front\img\detailbig3.jpg" />
+    <Content Include="front\img\detailsquare.jpg" />
+    <Content Include="front\img\detailsquare2.jpg" />
+    <Content Include="front\img\detailsquare3.jpg" />
+    <Content Include="front\img\favicon.ico" />
+    <Content Include="front\img\fixed-background-1.jpg" />
+    <Content Include="front\img\fixed-background-2.jpg" />
+    <Content Include="front\img\home-try.jpg" />
+    <Content Include="front\img\home.jpg" />
+    <Content Include="front\img\homepage-slider.jpg" />
+    <Content Include="front\img\logo-small.png" />
+    <Content Include="front\img\logo.png" />
+    <Content Include="front\img\main-slider1.jpg" />
+    <Content Include="front\img\main-slider2.jpg" />
+    <Content Include="front\img\main-slider3.jpg" />
+    <Content Include="front\img\main-slider4.jpg" />
+    <Content Include="front\img\marker.png" />
+    <Content Include="front\img\men.jpg" />
+    <Content Include="front\img\page-1.jpg" />
+    <Content Include="front\img\page-2.jpg" />
+    <Content Include="front\img\page-3.jpg" />
+    <Content Include="front\img\payment.png" />
+    <Content Include="front\img\person-1.png" />
+    <Content Include="front\img\person-2.png" />
+    <Content Include="front\img\person-3.png" />
+    <Content Include="front\img\person-4.png" />
+    <Content Include="front\img\photogrid.jpg" />
+    <Content Include="front\img\portfolio-1.jpg" />
+    <Content Include="front\img\portfolio-2.jpg" />
+    <Content Include="front\img\portfolio-3.jpg" />
+    <Content Include="front\img\portfolio-4.jpg" />
+    <Content Include="front\img\portfolio-5.jpg" />
+    <Content Include="front\img\portfolio-6.jpg" />
+    <Content Include="front\img\portfolio-7.jpg" />
+    <Content Include="front\img\portfolio-8.jpg" />
+    <Content Include="front\img\portfolio-9.jpg" />
+    <Content Include="front\img\product1.jpg" />
+    <Content Include="front\img\product2.jpg" />
+    <Content Include="front\img\product3.jpg" />
+    <Content Include="front\img\product4.jpg" />
+    <Content Include="front\img\slide1.jpg" />
+    <Content Include="front\img\slide2.jpg" />
+    <Content Include="front\img\slide3.jpg" />
+    <Content Include="front\img\slide4.jpg" />
+    <Content Include="front\img\slide5.jpg" />
+    <Content Include="front\img\slide6.jpg" />
+    <Content Include="front\img\template-easy-code.png" />
+    <Content Include="front\img\template-easy-customize-less.png" />
+    <Content Include="front\img\template-easy-customize.png" />
+    <Content Include="front\img\template-homepage.png" />
+    <Content Include="front\img\template-mac.png" />
+    <Content Include="front\img\template-tablets-2.png" />
+    <Content Include="front\img\template-tablets.png" />
+    <Content Include="front\img\texture-bw.png" />
+    <Content Include="front\img\texture-turquoise.png" />
+    <Content Include="front\img\texture-violet.png" />
+    <Content Include="front\img\women.jpg" />
+    <Content Include="front\index.html" />
+    <Content Include="front\js\bootstrap-hover-dropdown.js" />
+    <Content Include="front\js\bootstrap.min.js" />
+    <Content Include="front\js\front.js" />
+    <Content Include="front\js\gmaps.init.js" />
+    <Content Include="front\js\gmaps.js" />
+    <Content Include="front\js\jquery-1.11.0.min.js" />
+    <Content Include="front\js\jquery.cookie.js" />
+    <Content Include="front\js\jquery.counterup.min.js" />
+    <Content Include="front\js\jquery.parallax-1.1.3.js" />
+    <Content Include="front\js\owl.carousel.js" />
+    <Content Include="front\js\owl.carousel.min.js" />
+    <Content Include="front\js\respond.min.js" />
+    <Content Include="front\js\waypoints.min.js" />
+    <Content Include="front\news.html" />
+    <Content Include="front\resetPassword.html" />
+    <Content Include="front\showMsg.html" />
+    <Content Include="front\test.html" />
+    <Content Include="front\user-register.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\Jofriend.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Jofriend.edmx</DependentUpon>
+      <LastGenOutput>Jofriend.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Jofriend.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Jofriend.edmx</DependentUpon>
+      <LastGenOutput>Jofriend.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <None Include="Controllers\x_ActivateController.cs.bak" />
+    <Compile Include="Controllers\ActivityController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\RedirectController.cs" />
+    <None Include="Controllers\x_ResetController.cs.bak" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\usersController.cs" />
+    <Compile Include="custom\ADONET\CustomQuery.cs" />
+    <Compile Include="custom\ADONET\Db.cs" />
+    <Compile Include="custom\ADONET\UsersCmd.cs" />
+    <Compile Include="custom\config\DbConfig.cs" />
+    <Compile Include="custom\config\EmailConfig.cs" />
+    <Compile Include="custom\Emails\UserEmail.cs" />
+    <Compile Include="custom\formClass\activities\FormAddActivity.cs" />
+    <Compile Include="custom\formClass\users\FormUsersResetPassword.cs" />
+    <Compile Include="custom\formClass\users\FormUsersLogin.cs" />
+    <Compile Include="custom\formClass\users\FormUsersRegister.cs" />
+    <Compile Include="custom\tools\HashTool.cs" />
+    <Compile Include="custom\tools\JsonTool.cs" />
+    <Compile Include="custom\tools\MailTool.cs" />
+    <Compile Include="custom\tools\StrTool.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Activity.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ActivityDetail.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Blacklist.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Chatroom.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Exchange.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Factory.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Follow.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Jofriend.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Jofriend.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Jofriend.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Jofriend.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Jofriend.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Member.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Message.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MessageDetail.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Preference.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Record.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RobotDictionary.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RobotRecord.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Suggest.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\users.cs">
+      <DependentUpon>Jofriend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="front\css\bootstrap.css.map" />
+    <Content Include="front\css\fonts\fontawesome-webfont.eot" />
+    <Content Include="front\css\fonts\fontawesome-webfont.ttf" />
+    <Content Include="front\css\fonts\fontawesome-webfont.woff" />
+    <Content Include="front\css\fonts\FontAwesome.otf" />
+    <Content Include="front\css\style.default.css.bak" />
+    <Content Include="front\img\logo-small.png.bak" />
+    <Content Include="front\img\logo.png.bak" />
+    <EntityDeploy Include="Models\Jofriend.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Jofriend.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Jofriend.edmx.diagram">
+      <DependentUpon>Jofriend.edmx</DependentUpon>
+    </Content>
+    <Content Include="front\x\x_activity-list.html.bak" />
+    <Content Include="front\x\x_google-map.html.bak" />
+    <Content Include="front\x\x_showMsg.html.bak" />
+    <Content Include="front\x\x_user-login.html.bak" />
+    <Content Include="front\x\x_userRegister.html.bak" />
+    <Content Include="front\assets\plugins\datatables-1.10.7\images\Sorting icons.psd" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Page\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62151</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62151/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參考這部電腦上所缺少的 NuGet 封裝。請啟用 NuGet 封裝還原，以下載該封裝。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

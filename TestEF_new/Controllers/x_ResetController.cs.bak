@@ -1,0 +1,83 @@
+﻿using custom.ADONET;
+using custom.tools;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Web.Http;
+using TestEF_new.Models;
+
+namespace TestEF_new.Controllers
+{
+    //redirect to reset password page
+    [RoutePrefix("reset")]
+    public class ResetController : ApiController
+    {
+        private JofriendEntities db = new JofriendEntities();
+
+        [HttpGet]
+        [Route("users/{hashed}/{userID}")]
+        public dynamic resetPassword(int userID, string hashed)
+        {
+            if (!HashTool.VerifyMd5Hash(userID.ToString(), hashed))
+            {
+                var err = new { err = "verify url format invalid" };
+                return JsonTool.toJson(err);
+            }
+
+            var user =
+                (from p in db.users
+                 where p.userID.Equals(userID)
+                 select p).SingleOrDefault();
+
+            int status = (int)user.status;
+
+            String baseURL = Request.RequestUri.GetLeftPart(UriPartial.Authority);
+            String url = baseURL + "/front/showMsg.html";
+            String msgToken = "";
+            String htmlStr = "";
+
+            if (status.Equals(-1))
+            {
+                msgToken = "userBanned";
+            }
+            msgToken = "redirectToResetPasswordPage";
+
+            htmlStr =
+@"
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>plz w8</title>
+<meta charset = 'utf-8'>
+<meta name = 'viewport' content = 'width=device-width, initial-scale=1'>
+<link rel = 'stylesheet' href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<script src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+</head>
+<body>
+<div class='container'>
+</div>
+<script>
+"
++ "sessionStorage.setItem('msgToken'," + "'" + msgToken + "'" + ");"
++ "sessionStorage.setItem('userID'," + "'" + user.userID + "'" + ");"
++ "sessionStorage.setItem('userEmail'," + "'" + user.email + "'" + ");"
++ "sessionStorage.setItem('userNickname'," + "'" + user.nickname + "'" + ");"
++ "window.location='" + url + "';"
+
+ + @"
+</script>
+</body>
+</html>";
+
+            var response = new HttpResponseMessage();
+            response.Content = new StringContent(htmlStr);
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+            return response;
+
+        }
+    }
+}
